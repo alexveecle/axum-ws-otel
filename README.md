@@ -1,6 +1,10 @@
 # axum-ws-otel
 
 ```
+$ read OTEL_EXPORTER_OTLP_HEADERS
+authorization=...
+export OTEL_EXPORTER_OTLP_HEADERS
+export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
 cargo run
 ```
 

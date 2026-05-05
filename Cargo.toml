@@ -5,4 +5,7 @@ edition = "2024"
 
 [dependencies]
 axum = { version = "0.8.9", features = ["ws"] }
+axum-tracing-opentelemetry = "0.33.1"
+init-tracing-opentelemetry = { version = "0.37.0", features = ["tracing_subscriber_ext"] }
 tokio = { version = "1.52.2", features = ["rt-multi-thread"] }
+tracing = "0.1.44"
