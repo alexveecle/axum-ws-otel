@@ -1,0 +1,8 @@
+[package]
+name = "axum-ws-otel"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = { version = "0.8.9", features = ["ws"] }
+tokio = { version = "1.52.2", features = ["rt-multi-thread"] }
