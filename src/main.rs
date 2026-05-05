@@ -23,7 +23,7 @@ async fn main() {
             .unwrap(),
         Router::new()
             .route("/ws", any(ws_handler))
-            .layer(OtelInResponseLayer::default())
+            .layer(OtelInResponseLayer)
             .layer(OtelAxumLayer::default())
             .into_make_service(),
     )
