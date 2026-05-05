@@ -9,6 +9,7 @@ use axum::{
 };
 
 use axum_tracing_opentelemetry::middleware::{OtelAxumLayer, OtelInResponseLayer};
+use init_tracing_opentelemetry::tracing_opentelemetry::OpenTelemetrySpanExt;
 use tracing::{span, Level};
 
 #[tokio::main]
@@ -46,7 +47,7 @@ async fn handle_socket(mut socket: WebSocket) {
         let span = span!(Level::INFO, "ping");
         let _enter = span.enter();
         let message = socket.recv().await.unwrap().unwrap();
-        dbg!(&message);
+        span.set_attribute("message", message.clone().into_text().unwrap().to_string());
         {
             let span = span!(Level::INFO, "pong");
             let _enter = span.enter();
